@@ -1,13 +1,19 @@
+import { createContext, PropsWithChildren } from "react"
 import { Card as ChakraCard, CardBody } from "@chakra-ui/react"
+import { PokemonWithImage } from "interfaces/PokemonsResps"
 
-export const Card = () => {
+type CardProps = PokemonWithImage & PropsWithChildren
+
+export const CardContext = createContext({} as PokemonWithImage)
+
+const { Provider } = CardContext
+
+export const Card = ({ children, ...rest }: CardProps) => {
   return (
-    <ChakraCard>
-      <CardBody>
-        <span className="text-white">
-          View a summary of all your customers over the last month.
-        </span>
-      </CardBody>
-    </ChakraCard>
+    <Provider value={{ ...rest }}>
+      <ChakraCard>
+        <CardBody>{children}</CardBody>
+      </ChakraCard>
+    </Provider>
   )
 }

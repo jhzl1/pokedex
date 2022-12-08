@@ -2,25 +2,19 @@ import axios from "axios"
 
 interface FetchArgs {
   endpoint: string
-  method: "GET" | "POST" | "DELETE" | "PUT"
-  payload?: any
   params?: any
+  signal?: AbortSignal
 }
 
 export const pokeApi = axios.create({
   baseURL: "https://pokeapi.co/api/v2",
 })
 
-export const fetchPokeApi = <T>({
-  method,
-  endpoint,
-  params,
-  payload,
-}: FetchArgs) => {
+export const fetchPokeApi = <T>({ endpoint, params, signal }: FetchArgs) => {
   return pokeApi.request<T>({
-    method,
+    method: "GET",
     url: endpoint,
-    data: payload,
     params,
+    signal,
   })
 }
