@@ -1,5 +1,5 @@
-import "./App.css"
+import { RouterProvider } from "react-router-dom"
+import { router } from "routes"
+import "./assets/css/App.css"
 
-export const App = () => {
-  return <div className="">app</div>
-}
+export const App = () => <RouterProvider router={router} />
