@@ -18,7 +18,7 @@ export const HomePage = () => {
       useWindowScroll
       data={pokemons}
       endReached={() => setOffset((prevOffset) => prevOffset + 20)}
-      listClassName="grid grid-cols-4 gap-4"
+      listClassName="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4"
       itemContent={(_, pokeProps) => (
         <PokeCard {...pokeProps}>
           <PokeCard.Image />

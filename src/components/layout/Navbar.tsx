@@ -10,12 +10,12 @@ export const Navbar = () => {
   )
 
   return (
-    <div className="bg-slate-900 px-20 py-4 flex flex-row justify-between items-center h-20 sticky top-0 z-20 w-full shadow-lg">
+    <div className="bg-slate-900 px-5 lg:px-20 py-4 flex flex-row justify-between items-center h-20 sticky top-0 z-20 w-full shadow-lg">
       <Link
         to="/"
         onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
       >
-        <img src={logo} className="w-44" alt="POKEDEX" />
+        <img src={logo} className="w-36 md:w-44" alt="POKEDEX" />
       </Link>
       <div className="flex space-x-4 items-center">
         <NavLink

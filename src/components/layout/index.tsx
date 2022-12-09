@@ -6,7 +6,7 @@ export const AppLayout = () => {
   return (
     <div id="App">
       <Navbar />
-      <div className="px-20 pb-10">
+      <div className="px-5 lg:px-20 pb-10">
         <Outlet />
       </div>
       <Footer />

@@ -57,7 +57,11 @@ export const PokemonSearcher = ({
   }
 
   return (
-    <div className="w-56 flex justify-center items-center">
+    <div
+      className={`  ${
+        isSearchFromNavbar ? "w-40 md:w-56" : "w-56"
+      } flex justify-center items-center`}
+    >
       <Select
         options={options}
         components={{ DropdownIndicator }}
