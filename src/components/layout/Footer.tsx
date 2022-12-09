@@ -2,7 +2,7 @@ import { GithubIcon } from "assets/icons"
 
 export const Footer = () => {
   return (
-    <div className="bg-neutral-900 px-20 py-4 flex justify-center fixed w-full bottom-0">
+    <div className="bg-neutral-900 px-20 py-4 flex justify-center w-full">
       <span className="flex">
         Desinged by
         <a

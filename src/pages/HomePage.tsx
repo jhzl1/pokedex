@@ -1,29 +1,34 @@
-import { Skeleton } from "@chakra-ui/react"
+import { Spinner } from "@chakra-ui/react"
 import { VirtuosoGrid } from "react-virtuoso"
 
 import { PokeCard } from "components/card"
 import { useGetPokemons } from "hooks"
 
-export const HomePage = () => {
-  const { pokemons, isLoading, loadMore } = useGetPokemons()
+const Footer = () => (
+  <div className="m-4 flex justify-center">
+    <Spinner mx={3} /> Loading...
+  </div>
+)
 
-  if (isLoading) return <Skeleton height="3xl" />
+export const HomePage = () => {
+  const { pokemons, setOffset } = useGetPokemons()
+
+  console.log({ pokemons })
 
   return (
-    <>
-      <VirtuosoGrid
-        useWindowScroll
-        data={pokemons}
-        endReached={loadMore}
-        listClassName="grid grid-cols-4 gap-4"
-        itemContent={(_, pokeProps) => (
-          <PokeCard {...pokeProps}>
-            <PokeCard.Image />
-            <PokeCard.Title />
-            <PokeCard.Buttons />
-          </PokeCard>
-        )}
-      />
-    </>
+    <VirtuosoGrid
+      useWindowScroll
+      data={pokemons}
+      endReached={() => setOffset((prevOffset) => prevOffset + 20)}
+      listClassName="grid grid-cols-4 gap-4"
+      itemContent={(_, pokeProps) => (
+        <PokeCard {...pokeProps}>
+          <PokeCard.Image />
+          <PokeCard.Title />
+          <PokeCard.Buttons />
+        </PokeCard>
+      )}
+      components={{ Footer }}
+    />
   )
 }
