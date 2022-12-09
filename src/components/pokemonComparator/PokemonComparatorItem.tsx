@@ -1,6 +1,6 @@
-import { Skeleton, Text } from "@chakra-ui/react"
+import { Button, Skeleton, Text } from "@chakra-ui/react"
 import { PokemonAttributes, PokemonImages } from "components/pokemonDetail"
-import { useFetch } from "hooks"
+import { useComparePokemon, useFetch } from "hooks"
 import { PokemonDetailResp } from "interfaces/PokemonDetailResp"
 
 interface PokemonComparatorItemProps {
@@ -8,12 +8,14 @@ interface PokemonComparatorItemProps {
 }
 
 export const PokemonComparatorItem = ({ name }: PokemonComparatorItemProps) => {
+  const { removePokemon } = useComparePokemon()
+
   const { data: pokeData } = useFetch<PokemonDetailResp>({
     endpoint: `/pokemon/${name}/`,
   })
 
   return pokeData ? (
-    <div>
+    <div className="mb-4">
       <Text fontSize="2xl" color="blue.500" my={3} className="uppercase">
         {name}
       </Text>
@@ -31,6 +33,16 @@ export const PokemonComparatorItem = ({ name }: PokemonComparatorItemProps) => {
         stats={pokeData.stats}
         weight={pokeData.height}
       />
+      <Button
+        mt={3}
+        w="full"
+        className="ab top-0 right-0"
+        colorScheme="red"
+        size="sm"
+        onClick={() => removePokemon(name)}
+      >
+        Remove {name}
+      </Button>
     </div>
   ) : (
     <Skeleton h={20} />
