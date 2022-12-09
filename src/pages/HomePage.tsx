@@ -1,4 +1,5 @@
 import { Skeleton } from "@chakra-ui/react"
+
 import { PokeCard } from "components/card"
 import { useGetPokemons } from "hooks"
 
