@@ -8,13 +8,17 @@ export const useGetPokemons = () => {
   const [offset, setOffset] = useState(0)
 
   useEffect(() => {
+    const controller = new AbortController()
     const getPokemons = async () => {
+      const { signal } = controller
+
       const { data } = await fetchPokeApi<PokemonsResp>({
         endpoint: "/pokemon/",
         params: {
           limit: 20,
           offset,
         },
+        signal,
       })
 
       setPokemons((prevState) => [
@@ -24,6 +28,10 @@ export const useGetPokemons = () => {
     }
 
     getPokemons()
+
+    return () => {
+      controller.abort()
+    }
   }, [offset])
 
   return { pokemons, setOffset }

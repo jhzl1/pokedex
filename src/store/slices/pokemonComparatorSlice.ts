@@ -13,7 +13,7 @@ export const pokemonComparatorSlice = createSlice({
   initialState,
   reducers: {
     resetState: () => initialState,
-    addItem: (state, action: PayloadAction<string>) => {
+    addPokemon: (state, action: PayloadAction<string>) => {
       state.pokemons.push(action.payload)
     },
 
@@ -25,5 +25,5 @@ export const pokemonComparatorSlice = createSlice({
   },
 })
 
-export const { addItem, deletePokemon, resetState } =
+export const { addPokemon, deletePokemon, resetState } =
   pokemonComparatorSlice.actions
