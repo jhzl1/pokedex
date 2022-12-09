@@ -15,7 +15,7 @@ export const Navbar = () => {
         to="/"
         onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
       >
-        <img src={logo} className="w-36 md:w-44" alt="POKEDEX" />
+        <img src={logo} className="w-24 md:w-44" alt="POKEDEX" />
       </Link>
       <div className="flex space-x-4 items-center">
         <NavLink
@@ -23,7 +23,7 @@ export const Navbar = () => {
           className={({ isActive }) =>
             `font-bold underline underline-offset-2 decoration-${
               isActive ? "purple" : "blue"
-            }-700 hover:underline-offset-4`
+            }-700 hover:underline-offset-4 hidden md:inline`
           }
         >
           Comparator{" "}

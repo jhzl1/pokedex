@@ -32,7 +32,7 @@ export const PokemonDetailPage = () => {
 
   return pokeData ? (
     <PageContainer>
-      <div className="grid grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
         <div>
           <Text fontSize="4xl" color="blue.500" my={3} className="uppercase">
             {pokeData.name}
@@ -64,7 +64,7 @@ export const PokemonDetailPage = () => {
           />
         </div>
 
-        <div>
+        <div className="col-span-1 md:col-span-2 xl:col-span-1">
           <PokemonMoves moves={pokeData.moves} />
 
           <Button className="w-full" onClick={handleComparePokemon}>

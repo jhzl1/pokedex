@@ -23,7 +23,7 @@ export const PokemonImages = ({
         className="bg-slate-700 rounded-lg shadow-lg"
       />
       {showSmallImages && smallImages && (
-        <div className="grid grid-cols-4 gap-10 my-4">
+        <div className="grid grid-cols-4 gap-4 xl:gap-10 my-4">
           {smallImages.map((src, i) => (
             <Image
               key={i}

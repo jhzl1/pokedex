@@ -24,11 +24,13 @@ export const PokemonComparatorPage = () => {
       >
         <TrashIcon />
       </button>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {pokemonsToCompare.map((name) => (
           <PokemonComparatorItem key={name} name={name} />
         ))}
-        {pokemonsToCompare.length < 4 && <SearchPokemon />}
+        {pokemonsToCompare.length < 4 && (
+          <SearchPokemon pokemonsLength={pokemonsToCompare.length} />
+        )}
       </div>
     </PageContainer>
   )

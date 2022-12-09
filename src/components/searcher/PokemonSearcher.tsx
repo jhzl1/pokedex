@@ -59,7 +59,7 @@ export const PokemonSearcher = ({
   return (
     <div
       className={`  ${
-        isSearchFromNavbar ? "w-40 md:w-56" : "w-56"
+        isSearchFromNavbar ? "w-28 md:w-56" : "w-40 xl:w-56"
       } flex justify-center items-center`}
     >
       <Select
