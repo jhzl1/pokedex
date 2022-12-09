@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 #App {
-  @apply bg-neutral-800 text-white min-h-screen;
+  @apply bg-slate-800 text-white min-h-screen;
 }
 
 ::-webkit-scrollbar {

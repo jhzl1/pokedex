@@ -11,7 +11,7 @@ export const CardImage = () => {
       alt={name}
       w="full"
       height={200}
-      className="bg-neutral-700 rounded-lg shadow-lg"
+      className="bg-slate-700 rounded-lg shadow-lg"
     />
   )
 }

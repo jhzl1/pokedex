@@ -4,10 +4,18 @@ import { Provider } from "react-redux"
 
 import { store } from "store"
 
+import { extendTheme, type ThemeConfig } from "@chakra-ui/react"
+
+const config: ThemeConfig = {
+  initialColorMode: "dark",
+}
+
+const theme = extendTheme({ config })
+
 export const AppContext = ({ children }: PropsWithChildren) => {
   return (
     <Provider store={store}>
-      <ChakraProvider>{children}</ChakraProvider>
+      <ChakraProvider theme={theme}>{children}</ChakraProvider>
     </Provider>
   )
 }

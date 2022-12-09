@@ -10,7 +10,7 @@ export const Navbar = () => {
   )
 
   return (
-    <div className="bg-neutral-900 px-20 py-4 flex flex-row justify-between items-center h-20 sticky top-0 z-20 w-full shadow-lg">
+    <div className="bg-slate-900 px-20 py-4 flex flex-row justify-between items-center h-20 sticky top-0 z-20 w-full shadow-lg">
       <Link
         to="/"
         onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
@@ -26,7 +26,7 @@ export const Navbar = () => {
             }-700 hover:underline-offset-4`
           }
         >
-          Comparator
+          Comparator{" "}
           {pokemonsToCompare.length > 0 && `(${pokemonsToCompare.length})`}
         </NavLink>
         <PokemonSearcher />

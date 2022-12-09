@@ -20,7 +20,7 @@ export const PokemonImages = ({
         alt={altName}
         w="full"
         height={showSmallImages ? 380 : 180}
-        className="bg-neutral-700 rounded-lg shadow-lg"
+        className="bg-slate-700 rounded-lg shadow-lg"
       />
       {showSmallImages && smallImages && (
         <div className="grid grid-cols-4 gap-10 my-4">
@@ -31,7 +31,7 @@ export const PokemonImages = ({
               alt={altName}
               w="full"
               height={90}
-              className="bg-neutral-700 rounded-lg shadow-lg"
+              className="bg-slate-700 rounded-lg shadow-lg"
             />
           ))}
         </div>

@@ -1,12 +1,11 @@
-import { FormControl, FormLabel } from "@chakra-ui/react"
-import {
-  AutoComplete,
-  AutoCompleteInput,
-  AutoCompleteItem,
-  AutoCompleteList,
-} from "@choc-ui/chakra-autocomplete"
+import { Fade, Input } from "@chakra-ui/react"
+import { Select } from "chakra-react-select"
+import { useState } from "react"
+import { Virtuoso } from "react-virtuoso"
 
 export const PokemonSearcher = () => {
+  const [inputValue, setInputValue] = useState("")
+
   const countries = [
     "nigeria",
     "japan",
@@ -16,22 +15,24 @@ export const PokemonSearcher = () => {
   ]
 
   return (
-    <FormControl w="60">
-      <FormLabel>Olympics Soccer Winner</FormLabel>
-      <AutoComplete openOnFocus>
-        <AutoCompleteInput variant="filled" />
-        <AutoCompleteList>
-          {countries.map((country, cid) => (
-            <AutoCompleteItem
-              key={`option-${cid}`}
-              value={country}
-              textTransform="capitalize"
-            >
-              {country}
-            </AutoCompleteItem>
-          ))}
-        </AutoCompleteList>
-      </AutoComplete>
-    </FormControl>
+    <div className="w-56">
+      <Select
+        placeholder="Search pokemon"
+        options={[
+          {
+            label: "I am red",
+            value: "i-am-red",
+          },
+          {
+            label: "I fallback to purple",
+            value: "i-am-purple",
+          },
+        ]}
+        size="sm"
+        className="!w-full"
+        colorScheme="blackAlpha"
+        useBasicStyles
+      />
+    </div>
   )
 }

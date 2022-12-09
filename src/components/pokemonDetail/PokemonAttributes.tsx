@@ -19,7 +19,7 @@ export const PokemonAttributes = ({
 }: PokemonAttributesProps) => {
   return (
     <>
-      <div className="rounded-lg bg-neutral-900 p-3 mt-7 grid grid-cols-2 gap-4">
+      <div className="rounded-lg bg-slate-900 p-3 mt-7 grid grid-cols-2 gap-4">
         <span>Weight:</span>
         <span className="font-bold">{weight / 10} kg</span>
         <span>Height:</span>
@@ -40,7 +40,7 @@ export const PokemonAttributes = ({
         Abilities
       </Text>
 
-      <div className="rounded-lg bg-neutral-900 p-3 mt-5 font-bold">
+      <div className="rounded-lg bg-slate-900 p-3 mt-5 font-bold">
         {abilities
           .map(({ ability }) => nameFormatter(ability.name))
           .join(" / ")}

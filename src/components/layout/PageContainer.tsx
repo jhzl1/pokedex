@@ -8,7 +8,7 @@ export const PageContainer = ({ children }: PropsWithChildren) => {
   return (
     <div className="py-4 relative">
       <button
-        className="bg-neutral-700 rounded-full h-8 w-8 flex justify-center items-center absolute left-0"
+        className="bg-slate-700 rounded-full h-8 w-8 flex justify-center items-center absolute left-0"
         onClick={() => navigate(-1)}
       >
         <BackIcon />

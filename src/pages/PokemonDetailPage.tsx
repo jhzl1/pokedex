@@ -71,7 +71,7 @@ export const PokemonDetailPage = () => {
           <PokemonMoves moves={pokeData.moves} />
 
           <Button
-            className="text-neutral-700 w-full"
+            className="text-slate-700 w-full"
             onClick={handleComparePokemon}
           >
             {isPokeOnComparator ? "Go to comparator" : "Compare"}
