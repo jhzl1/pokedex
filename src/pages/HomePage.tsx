@@ -13,8 +13,6 @@ const Footer = () => (
 export const HomePage = () => {
   const { pokemons, setOffset } = useGetPokemons()
 
-  console.log({ pokemons })
-
   return (
     <VirtuosoGrid
       useWindowScroll
