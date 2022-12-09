@@ -6,9 +6,10 @@ import axios from "axios"
 type UseFetchArgs = {
   endpoint: string
   params?: any
+  dependency?: any
 }
 
-export const useFetch = <T>({ endpoint, params }: UseFetchArgs) => {
+export const useFetch = <T>({ endpoint, params, dependency }: UseFetchArgs) => {
   const [isLoading, setIsLoading] = useState(false)
   const [data, setData] = useState<T | null>(null)
   const [error, setError] = useState("")
@@ -40,7 +41,7 @@ export const useFetch = <T>({ endpoint, params }: UseFetchArgs) => {
     return () => {
       controller.abort()
     }
-  }, [])
+  }, [dependency])
 
   return { isLoading, data, error }
 }

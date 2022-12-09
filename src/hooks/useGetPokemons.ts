@@ -1,19 +1,30 @@
 import { pokemonFormatter } from "helpers/pokemonFormatter"
 import { PokemonsResp, PokemonWithImage } from "interfaces/PokemonsResps"
+import { useCallback, useEffect, useState } from "react"
 import { useFetch } from "./useFetch"
 
 export const useGetPokemons = () => {
+  const [offset, setOffset] = useState(0)
+
   const { data, isLoading } = useFetch<PokemonsResp>({
     endpoint: "/pokemon/",
     params: {
-      limit: 20,
-      offset: 20,
+      limit: 40,
+      offset,
     },
+    dependency: offset,
   })
 
-  let pokemons: PokemonWithImage[] = []
+  const [pokemons, setPokemons] = useState<PokemonWithImage[]>([])
 
-  if (data) pokemons = pokemonFormatter(data.results, 0)
+  const loadMore = useCallback(() => {
+    return setTimeout(() => setOffset(offset + 20), 200)
+  }, [setOffset])
 
-  return { pokemons, isLoading }
+  useEffect(() => {
+    if (data)
+      setPokemons([...pokemons, ...pokemonFormatter(data.results, offset)])
+  }, [data])
+
+  return { pokemons, isLoading, loadMore }
 }

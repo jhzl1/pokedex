@@ -5,3 +5,13 @@
 #App {
   @apply bg-neutral-800 text-white min-h-screen;
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background: #525252;
+}
