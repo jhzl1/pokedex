@@ -29,7 +29,7 @@ export const Navbar = () => {
           Comparator{" "}
           {pokemonsToCompare.length > 0 && `(${pokemonsToCompare.length})`}
         </NavLink>
-        <PokemonSearcher />
+        <PokemonSearcher isSearchFromNavbar />
       </div>
     </div>
   )

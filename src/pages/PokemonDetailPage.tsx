@@ -6,26 +6,23 @@ import { PokemonAttributes } from "components/pokemonDetail/PokemonAttributes"
 import { PokemonDetailResp } from "interfaces/PokemonDetailResp"
 import { PokemonImages } from "components/pokemonDetail/PokemonImages"
 import { PokemonMoves } from "components/pokemonDetail"
-import { useAppSelector, useComparePokemon, useFetch } from "hooks"
+import { useComparePokemon, useFetch } from "hooks"
 
 export const PokemonDetailPage = () => {
   const { pokeID } = useParams<"pokeID">()
 
   const { data: pokeData } = useFetch<PokemonDetailResp>({
     endpoint: `/pokemon/${pokeID}/`,
+    dependency: pokeID,
   })
 
-  const { addPokemon } = useComparePokemon()
+  const { addPokemon, checkPokemon } = useComparePokemon()
 
   const navigate = useNavigate()
 
-  const pokemonsToCompare = useAppSelector(
-    (state) => state.pokemonComparator.pokemons
-  )
-
   let isPokeOnComparator = false
 
-  if (pokeData) isPokeOnComparator = pokemonsToCompare.includes(pokeData!.name)
+  if (pokeData) isPokeOnComparator = checkPokemon(pokeData.name)
 
   const handleComparePokemon = () => {
     if (!isPokeOnComparator) addPokemon(pokeData!?.name)
@@ -70,10 +67,7 @@ export const PokemonDetailPage = () => {
         <div>
           <PokemonMoves moves={pokeData.moves} />
 
-          <Button
-            className="text-slate-700 w-full"
-            onClick={handleComparePokemon}
-          >
+          <Button className="w-full" onClick={handleComparePokemon}>
             {isPokeOnComparator ? "Go to comparator" : "Compare"}
           </Button>
         </div>

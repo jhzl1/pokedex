@@ -15,7 +15,7 @@ export const PokemonMoves = ({ moves }: PokemonMovesProps) => {
 
       <div className="rounded-lg bg-slate-900 p-3 mt-7 font-bold grid grid-cols-3 gap-2 mb-5">
         {moves.slice(-35).map(({ move }) => (
-          <span>- {nameFormatter(move.name)}</span>
+          <span key={move.name}>- {nameFormatter(move.name)}</span>
         ))}
       </div>
     </>

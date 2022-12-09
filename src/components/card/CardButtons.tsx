@@ -5,19 +5,17 @@ import { useDispatch } from "react-redux"
 
 import { addPokemon } from "store/slices/pokemonComparatorSlice"
 import { CardContext } from "./Card"
-import { useAppSelector } from "hooks"
+import { useComparePokemon } from "hooks"
 
 export const CardButtons = () => {
   const { name, id } = useContext(CardContext)
 
+  const { checkPokemon } = useComparePokemon()
+
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const pokemonsToCompare = useAppSelector(
-    (state) => state.pokemonComparator.pokemons
-  )
-
-  const isPokeOnComparator = pokemonsToCompare.includes(name)
+  const isPokeOnComparator = checkPokemon(name)
 
   const handleCompare = () => {
     if (!isPokeOnComparator) dispatch(addPokemon(name))

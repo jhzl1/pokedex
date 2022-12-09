@@ -10,6 +10,23 @@ interface PokemonAttributesProps {
   abilities: Ability[]
 }
 
+interface StatLineProps {
+  nameStat: string
+  baseStat: number
+}
+
+const StatLine = ({ baseStat, nameStat }: StatLineProps) => {
+  return (
+    <>
+      <span>{nameFormatter(nameStat)}:</span>
+      <div className="relative pt-2">
+        <span className="absolute -top-0">{baseStat}</span>
+        <Progress rounded="lg" ml={8} value={baseStat} />
+      </div>
+    </>
+  )
+}
+
 export const PokemonAttributes = ({
   weight,
   height,
@@ -27,13 +44,7 @@ export const PokemonAttributes = ({
         <span>Base experience:</span>
         <span className="font-bold">{baseExperience}</span>
         {stats.map(({ stat, base_stat }) => (
-          <>
-            <span>{nameFormatter(stat.name)}:</span>
-            <div className="relative pt-2">
-              <span className="absolute -top-0">{base_stat}</span>
-              <Progress rounded="lg" ml={8} value={base_stat} />
-            </div>
-          </>
+          <StatLine baseStat={base_stat} nameStat={stat.name} key={stat.name} />
         ))}
       </div>
       <Text fontSize="2xl" color="blue.500" my={3} className="uppercase">

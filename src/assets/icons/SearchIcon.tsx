@@ -1,8 +1,12 @@
-export const SearchIcon = () => {
+interface Props {
+  className?: string
+}
+
+export const SearchIcon = ({ className = "w-24 h-24" }: Props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="w-24 h-24 stroke-slate-600"
+      className={`${className} stroke-slate-600`}
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       fill="none"
